@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="file">
+    <br>
+    <img src="" alt="" id="img">
+    <script>
+        // file.onchange = function (e) {
+        //     const imgFile = e.target.files[0];
+        //     let reader = new FileReader();
+        //     reader.readAsDataURL(imgFile)
+        //     reader.onload = function () {
+        //         img.src = reader.result;
+        //     }
+        // }
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.rich = function () {
+            console.log('rich');
+        }
+
+        function Son(name, age, gender) {
+
+            this.gender = gender;
+            Person.call(this, name, age)
+        }
+
+
+        Son.prototype = new Person();
+        Son.prototype.constructor = Son;
+        let s1 = new Son('zs', 19, 0);
+        s1.rich()
+
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            rich() {
+                console.log('rich');
+            }
+        }
+
+        class Son extends Person {
+            constructor(name, age, gender) {
+                super(name, age);
+                this.gender = gender;
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
